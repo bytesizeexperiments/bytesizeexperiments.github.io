@@ -6,7 +6,12 @@ html, body {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
+
 .logo-container {
   flex: 1;
   display: flex;
@@ -14,18 +19,27 @@ html, body {
   align-items: center;
   text-align: center;
 }
+
 .logo-container img {
   max-width: 300px;
   height: auto;
+  -webkit-user-drag: none;
+  pointer-events: auto;
 }
+
 footer {
   text-align: center;
   padding: 20px;
 }
+
 footer img {
   width: 100px;
   height: auto;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: auto;
 }
+
 footer a:hover img {
   opacity: 0.8;
   transition: opacity 0.2s ease-in-out;
