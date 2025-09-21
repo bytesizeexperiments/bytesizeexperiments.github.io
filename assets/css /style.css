@@ -1,0 +1,28 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.logo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.logo-container img {
+  max-width: 300px;
+  height: auto;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+}
+footer img {
+  width: 100px;
+  height: auto;
+}
