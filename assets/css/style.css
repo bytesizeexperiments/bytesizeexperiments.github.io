@@ -11,12 +11,24 @@ html, body {
   -moz-user-select: none; /* Keeps support for older Firefox versions */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .logo-container {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
 .logo-container img {
