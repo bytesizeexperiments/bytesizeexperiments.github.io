@@ -2,19 +2,25 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: sans-serif;
-  background-color: #ffffff;
+  /* A modern system font stack that looks incredibly crisp on all devices */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Smooths out font pixels for a cleaner look */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* A soft, modern off-white that reduces eye strain */
+  background-color: #f9fafb; 
   display: flex;
   flex-direction: column;
   user-select: none;
   -webkit-user-select: none;
-  -moz-user-select: none; /* Keeps support for older Firefox versions */
+  -moz-user-select: none;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    /* Reduced to 6px for a tighter, more subtle motion */
+    transform: translateY(6px); 
   }
   to {
     opacity: 1;
@@ -28,7 +34,7 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Smoother easing curve */
 }
 
 .logo-container img {
@@ -40,9 +46,10 @@ html, body {
 
 footer {
   text-align: center;
-  padding: 20px;
-  opacity: 0; 
-  animation: fadeIn 0.8s ease-out 0.3s forwards;
+  padding: 30px; /* Slightly more breathing room */
+  opacity: 0;
+  /* Staggered entry: fades in just after the main logo */
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
 footer img {
@@ -51,10 +58,12 @@ footer img {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: auto;
-  /* Smooth transition on both hover enter AND leave */
-  transition: opacity 0.2s ease-in-out; 
+  /* Added transform to the transition for the lift effect */
+  transition: opacity 0.2s ease, transform 0.2s ease; 
 }
 
 footer a:hover img {
-  opacity: 0.8;
+  opacity: 0.7;
+  /* Gives a subtle 2px vertical lift on hover */
+  transform: translateY(-2px); 
 }
