@@ -68,22 +68,20 @@ footer a:hover img {
   transform: translateY(-2px); /* Micro-interaction lift */
 }
 
-/* --- AUTOMATED ENVIRONMENT AWARENESS --- */
 @media (prefers-color-scheme: dark) {
   html, body {
-    background-color: #0d1117; /* GitHub's native dark-mode slate */
+    background-color: #0d1117;
     box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
   }
 
   .logo-container img {
-    /* Dynamic filter turns the dark typography pure, crisp white */
-    filter: brightness(0) invert(1); 
+    filter: none; 
+    mix-blend-mode: difference; 
   }
 
   footer img {
-    /* Aligns the GitHub icon color with the theme and scales down glare */
-    filter: brightness(0) invert(1);
-    opacity: 0.4;
+    mix-blend-mode: difference;
+    opacity: 0.5;
   }
 
   footer a:hover img {
