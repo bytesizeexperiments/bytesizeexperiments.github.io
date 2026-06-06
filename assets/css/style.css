@@ -2,24 +2,21 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* A modern system font stack that looks incredibly crisp on all devices */
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  /* Smooths out font pixels for a cleaner look */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* A soft, modern off-white that reduces eye strain */
+  /* A soft, modern off-white canvas that reduces eye strain */
   background-color: #f9fafb; 
   display: flex;
   flex-direction: column;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
+  /* Soft inner vignette for a subtle presentation depth */
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.02);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    /* Reduced to 6px for a tighter, more subtle motion */
+    /* 6px glide keeps the movement tight and premium */
     transform: translateY(6px); 
   }
   to {
@@ -34,21 +31,25 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; /* Smoother easing curve */
+  /* Premium OS-style cubic-bezier deceleration curve */
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
 }
 
 .logo-container img {
   max-width: 300px;
+  width: 85%; /* Fluid scaling on narrow mobile screens */
   height: auto;
+  aspect-ratio: 3 / 1; /* Prevents layout shifting during asset load */
   -webkit-user-drag: none;
   pointer-events: auto;
+  will-change: transform, opacity; /* Offloads animation to the GPU to keep pixels crisp */
 }
 
 footer {
   text-align: center;
-  padding: 30px; /* Slightly more breathing room */
+  padding: 40px 20px; /* Generous vertical breathing room */
   opacity: 0;
-  /* Staggered entry: fades in just after the main logo */
+  /* Staggered entry: glides in gracefully right after the main logo */
   animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
 }
 
@@ -58,12 +59,34 @@ footer img {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: auto;
-  /* Added transform to the transition for the lift effect */
   transition: opacity 0.2s ease, transform 0.2s ease; 
+  will-change: transform, opacity;
 }
 
 footer a:hover img {
   opacity: 0.7;
-  /* Gives a subtle 2px vertical lift on hover */
-  transform: translateY(-2px); 
+  transform: translateY(-2px); /* Micro-interaction lift */
+}
+
+/* --- AUTOMATED ENVIRONMENT AWARENESS --- */
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #0d1117; /* GitHub's native dark-mode slate */
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.6);
+  }
+
+  .logo-container img {
+    /* Dynamic filter turns the dark typography pure, crisp white */
+    filter: brightness(0) invert(1); 
+  }
+
+  footer img {
+    /* Aligns the GitHub icon color with the theme and scales down glare */
+    filter: brightness(0) invert(1);
+    opacity: 0.4;
+  }
+
+  footer a:hover img {
+    opacity: 0.9;
+  }
 }
