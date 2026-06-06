@@ -8,8 +8,7 @@ html, body {
   flex-direction: column;
   user-select: none;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  -moz-user-select: none; /* Keeps support for older Firefox versions */
 }
 
 .logo-container {
@@ -38,9 +37,10 @@ footer img {
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: auto;
+  /* Smooth transition on both hover enter AND leave */
+  transition: opacity 0.2s ease-in-out; 
 }
 
 footer a:hover img {
   opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
 }
